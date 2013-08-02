@@ -1,0 +1,72 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.articles {
+
+	.article_list {
+		margin-left: auto;
+		margin-right: auto;
+		width: 810px;
+	//	background-color: gray;
+	}
+
+	.article {
+		margin-left: 0px;
+		width: 750px;
+		//background-color: #0000FF;
+		border-width: 3px;
+		border-style: solid;
+		border-radius: 15px;
+		-moz-border-radius: 15px;
+		border-color: #B5B5B5;
+		transition: background-color 0.5s,  border-color 0.5s,
+								width 0.5s;
+		-moz-transition: background-color 0.5s,  border-color 0.5s,
+										width 0.5s;
+	}
+
+	.article:hover {
+		background-color: #E5E5E5;
+		transition: background-color 1s, border-color 1s
+								width 1s;
+		-moz-transition: background-color 1s, border-color 1s
+									width 1s;
+		border-width: 3px;
+		border-color: #B0E0E6;
+		width: 800px;
+	}
+
+	.content {
+		width: 600px;
+		border-width: 1px;
+		border-color: #383838;
+		border-style: dashed;
+		background-color: #8DB6CD;
+	}
+
+	.title {
+		a:link { 
+			text-decoration: none; 
+			color: black; 
+		}
+
+		a:visited {
+			text-decoration: none;
+			color: gray;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: white;
+			background-color: dark-gray;
+			transition: background-color 1s;
+			border-radius: 5px;
+		}
+
+		a:active {
+			text-decoration: none;
+			color: red;
+		}
+
+	}
+}
