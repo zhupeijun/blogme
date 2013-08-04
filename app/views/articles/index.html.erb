@@ -1,43 +1,64 @@
 <h1>This is the article page</h1>
-
-<div class="article_list">
-		<% @articles.each do |article| %>
-					<div class="article"> 
-					<table>
-						<tr>
-							<td class="title">
-								<h2>
+<div class="layout">
+<table>
+	<tr valign=top>
+		<td >
+			<div class="tags">
+				<%= render "article_tags/article_tag" %>
+			</div>
+		</td>
+		<td class="article_list">
+			<% @articles.each do |article| %>
+				<div class="article">
+				<table>
+					<tr>
+						<td class="title">
+							<h2>
 									<%= link_to "#{article.title}", article %>
-								</h2>
-							</td>
-						</tr>
-						<tr>
-							<td><p><%= article.date %></p></td>
-							<td><p><%= article.author %></p></td>
-						</tr>
-						<tr><td class="content">
-								<p>
+							</h2>
+						</td>
+					</tr>
+					<tr>
+						<td><p><%= article.date %></p></td>
+						<td><p><%= article.author %></p></td>
+					</tr>
+					<tr>
+						<td class="content">
+							<p>
 								<%= truncate_html(article.content, length: 500) %>
-								</p>
-						</td></tr>
-						<tr>
-							<td><p><%= article.tags %></p></td>
-							<td>
-								<div>
-									<%= link_to 'Show', article %> 
-									<%= link_to 'Edit', edit_article_path(article),
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>#
+								<% flag = true %>
+								<%article.tags.split(/,/).each do |t| %>
+									<% if flag then %>
+										<% flag = false %>
+									<% else %>
+										<%= ',' %>
+									<% end %>
+									<%= link_to "#{t}", tag_search_path(tag: t) %>
+								<% end %>
+						</td>
+						<td>
+							<%= link_to 'Show', article %> 
+							<%= link_to 'Edit', edit_article_path(article),
 											method: :get %>
-									<%= link_to 'Destroy', article,
-										method: :delete, data: 
-										{ confirm: 'Are you sure?' } %>
-								</div>
-							</td>
+							<%= link_to 'Destroy', article,
+									method: :delete, data: 
+									{ confirm: 'Are you sure?' } %>
+						</td>
 						</tr>
 					</table>
 				</div>
-			<% end %>
-		</div>
-			<div>
-		<%= paginate @articles %>
-			</div>
+				<% end %>
+			</td>
+		</tr>
+		<tr> 
+				<td>
+					<%= paginate @articles %>
+			</td>
+		</tr>
+	</table>
 </div>

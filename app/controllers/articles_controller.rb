@@ -2,6 +2,10 @@ class ArticlesController < ApplicationController
 	skip_before_filter :authorize, only: [:show, :index]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
+
+	def submit_comment
+	end
+
   # GET /articles
   # GET /articles.json
   def index
@@ -11,6 +15,9 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+		@comment = Comment.new
+		@comment.article_id = @article.id
+		@comment_list = Comment.where("article_id = #{@article.id}")
   end
 
   # GET /articles/new
@@ -31,6 +38,11 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 		@article.date = Time.now
 		@article.author = @user.name
+		
+		@article.tags.split(/,/).each do |t|
+			@article.add_article_tag(t)
+		end
+		
 
     respond_to do |format|
       if @article.save
@@ -46,6 +58,12 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+
+		ArticleTag.delete_all("article_id = #{@article.id}")
+		article_params[:tags].split(/,/).each do |t|
+			@article.add_article_tag(t)
+		end
+		
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }

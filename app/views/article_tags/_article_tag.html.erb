@@ -1,0 +1,10 @@
+
+<table>
+		<% ArticleTag.group(:tag).count.each do |k,v| %>
+			<tr>
+				<td>
+					<%= link_to "#{k} (#{v})", tag_search_path(tag: k)%>
+				</td>
+			</tr>
+	<% end %>
+</table>

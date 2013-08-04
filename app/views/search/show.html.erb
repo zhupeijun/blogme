@@ -1,0 +1,14 @@
+<h1>Search result</h1>
+
+<div>
+	<table>
+		<% @articles.each do |a| %>
+		<tr>
+			<td>
+				<%= link_to "#{a.title}", 
+						article_path(:id => a.id)%>
+			</td>
+		</tr>
+	<% end %>
+	</table>
+</div>

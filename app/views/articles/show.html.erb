@@ -23,7 +23,27 @@
 <p>
   <strong>Tags:</strong>
   <%= @article.tags %>
-</p>
+	</p>
 
 <%= link_to 'Edit', edit_article_path(@article), method: :get %>
 <%= link_to 'Back', articles_path %>
+<div> 
+	<% @comment_list.each do |c| %>
+		<table class="comment">
+			<tr>
+				<td class="user"><%= c.nick + " says:"  %></td>
+			</tr>
+			<tr>
+				<td><%= c.content %></td>
+			</tr>
+		</table>
+	<% end %>
+</div>
+<div class="comment_list">
+	<p>This is the comment area</p>
+	<% if flash[:alert] %>
+		<p><%= flash[:alert] %></p>
+	<% end %>
+	<%= render @comment %>
+</div>
+</div>

@@ -1,9 +1,24 @@
 Blogme::Application.routes.draw do
 
+  get "tag_search/search"
+  resources :article_tags
+
+  get "search/new"
+  get "search/show"
+  resources :comments
+
 	controller :sessions do
 		get 'login' => :new
 		post 'login' => :create
 		delete 'logout' => :destroy
+	end
+
+	controller :search do
+		post 'search' => :show
+	end
+
+	controller :tag_search do
+		get 'tag_search' => :search
 	end
 
 
