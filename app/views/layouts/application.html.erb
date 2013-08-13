@@ -7,28 +7,40 @@
 	<%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-	<div>
-		
-		<% if session[:user_id] %>
-			<%= User.find_by_id(session[:user_id]).name %>
-			<%= link_to 'Logout', logout_url, method: :delete %>
-		<% else %>
-			<%= link_to 'SignIn', login_url %>
-		<% end %>
-
-		<%= link_to 'New Article', new_article_path, method: :get %>
-
-		<%= link_to 'Index', articles_url %>
-		
-	</div>
-	<div>
-		<%= form_tag '/search', method: :new do %>
-			<%= text_field_tag :key_words %>
-			<%= submit_tag 'Search' %>
-		<% end %>
-	</div>
 	<div id="main">
-		<%= yield %>
+		<div id="header">
+			<div>
+				
+				<% if session[:user_id] %>
+					<%= User.find_by_id(session[:user_id]).name %>
+					<%= link_to 'Logout', logout_url, method: :delete %>
+				<% else %>
+					<%= link_to 'SignIn', login_url %>
+				<% end %>
+
+				<%= link_to 'New Article', new_article_path, method: :get %>
+
+				<%= link_to 'Index', articles_url %>
+				
+			</div>
+			<div>
+				<%= form_tag '/search', method: :new do %>
+					<%= text_field_tag :key_words %>
+					<%= submit_tag 'Search' %>
+				<% end %>
+			</div>
+		</div>
+		<div id="layout">
+			<div class="yield">
+				<%= yield %>
+			</div>
+			<div class="rightbar">
+				
+			</div>
+		</div>
+		<div id="bottom">
+			bottom
+		</div>
 	</div>
 
 </body>

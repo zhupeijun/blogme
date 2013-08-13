@@ -12,13 +12,46 @@
  *= require_tree .
  */
 
+
+
 #main {
 	margin: 0 auto;
-	border-width: 1px;
-	border-color: #FF0;
-	background-color: gray;
+	background-color: #E8E8E8;
+}
+#header {
+	background-color: #303030;
+
+	padding: 20px;
 }
 
-.header {
+#bottom {
+	margin-top: 100px;
 
+	background-color: #303030;
+
+	height: 200px;
+}
+
+
+#layout {
+
+
+	margin: 0 auto;
+
+	width: 1000px;
+	background-color: black;
+}
+
+.yield {
+	width: 810px;
+	background-color: yellow;
+
+	display: inline-block;
+}
+
+.rightbar {
+	vertical-align: top;
+	width: 100px;
+	background-color: red;
+	display: inline-block;
 }

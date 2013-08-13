@@ -4,13 +4,16 @@
 .articles {
 
 	.layout {
-		margin-left: auto;
-		margin-right: auto;
-		width: 900px;
+		margin-left: 0;
+		width: 800px;
+		//background-color: blue;
 	}
 	.article_list {
-		width: 500px;
-	//	background-color: gray;
+
+		//width: 785px;
+		//margin-left: auto;
+		//margin-right: auto;
+		//background-color: green;
 	}
 
 	.article {
@@ -35,11 +38,15 @@
 		width:  750px;
 		padding: 10px;
 
-		background-color: #C2C2C2;
+		background-color: #F5FFFA;
 
 		.title {
-			padding: 10px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			padding-left: 10px;
+
 			font-size: 20px;
+			color: gray;
 		}
 	}
 
@@ -61,6 +68,8 @@
 	}
 
 	.title {
+		color: #4682B4; 
+
 		a:link { 
 			text-decoration: none; 
 			color: #4682B4; 
@@ -86,7 +95,6 @@
 	}
 
 	.comment_list {
-		background-color: gray;
 	}
 
 	.comment {
@@ -100,6 +108,25 @@
 			border-width: 0px;
 			background-color: white;
 
+		}
+	}
+
+	.comment_field {
+
+		input {
+			padding: 7px;
+			border: 1px solid #ADD8E6;
+			border-radius: 5px;
+
+			margin: 5px;
+		}
+
+		textarea {
+			padding: 7px;
+			border: 1px solid #ADD8E6;
+			border-radius: 5px;
+
+			margin: 5px;
 		}
 	}
 

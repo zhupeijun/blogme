@@ -1,56 +1,45 @@
 <div class="layout">
-<table>
-	<tr valign=top>
-		<td   style="display: none">
-			<div class="tags">
-				<%= render "article_tags/article_tag" %>
-			</div>
-		</td>
-		<td class="article_list">
-			<% @articles.each do |article| %>
-				<div class="article">
-					<div>
-					 	<div class="title">
-							<h2>
-									<%= link_to "#{article.title}", article %>
-							</h2>
-						</div>
-						<div>
-							Posted: <%= article.date.strftime('%Y-%m-%d').to_s %> By:<%= article.author %>
-						</div>
-						<div class="content">
-							<p><%= truncate_html(article.content, length: 500) %></p>
-						</div>
+	<div class="article_list">
+		<% @articles.each do |article| %>
+			<div class="article">
+				<div>
+				 	<div class="title">
+						<h2>
+								<%= link_to "#{article.title}", article %>
+						</h2>
 					</div>
-					<div class="article_bottom">
-						<div class="article_tags">#
-										<% flag = true %>
-										<%article.tags.split(/,/).each do |t| %>
-											<% if flag then %>
-												<% flag = false %>
-											<% else %>
-												<%= ',' %>
-											<% end %>
-											<%= link_to "#{t}", tag_search_path(tag: t) %>
-										<% end %>
-						</div>
-						<div style="display: none">
-							<%= link_to 'Show', article %> 
-							<%= link_to 'Edit', edit_article_path(article),
-											method: :get %>
-							<%= link_to 'Destroy', article,
-									method: :delete, data: 
-									{ confirm: 'Are you sure?' } %>
-						</div>
+					<div>
+						Posted: <%= article.date.strftime('%Y-%m-%d').to_s %> By:<%= article.author %>
+					</div>
+					<div class="content">
+						<p><%= truncate_html(article.content, length: 500) %></p>
 					</div>
 				</div>
-				<% end %>
-			</td>
-		</tr>
-		<tr> 
-				<td>
-					<%= paginate @articles %>
-			</td>
-		</tr>
-	</table>
+				<div class="article_bottom">
+					<div class="article_tags">#
+						<% flag = true %>
+						<%article.tags.split(/,/).each do |t| %>
+							<% if flag then %>
+								<% flag = false %>
+							<% else %>
+								<%= ',' %>
+							<% end %>
+							<%= link_to "#{t}", tag_search_path(tag: t) %>
+						<% end %>
+					</div>
+					<div style="display: none">
+						<%= link_to 'Show', article %> 
+						<%= link_to 'Edit', edit_article_path(article),
+										method: :get %>
+						<%= link_to 'Destroy', article,
+								method: :delete, data: 
+								{ confirm: 'Are you sure?' } %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+<div>
+	<%= paginate @articles %>
+</div>
 </div>

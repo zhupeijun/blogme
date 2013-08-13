@@ -1,10 +1,8 @@
-
 <div class="layout">
-
 	<p id="notice"><%= notice %></p>
 	<div class="article">
 		<div class="title">
-			<h1><%= @article.title %></h1>
+			<h2><%= @article.title %></h2>
 		</div>
 		<div>
 			Posted:<%= @article.date %> By:<%= @article.author %>
@@ -44,7 +42,6 @@
 			<% end %>
 		</div>
 		<div class="comment_list">
-			<p>This is the comment area</p>
 			<% if flash[:alert] %>
 				<p><%= flash[:alert] %></p>
 			<% end %>
