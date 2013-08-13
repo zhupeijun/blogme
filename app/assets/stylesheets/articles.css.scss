@@ -6,7 +6,7 @@
 	.layout {
 		margin-left: auto;
 		margin-right: auto;
-		width: 880px;
+		width: 900px;
 	}
 	.article_list {
 		width: 500px;
@@ -14,49 +14,61 @@
 	}
 
 	.article {
-		margin-top: 5px;
-		margin-left: 0px;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
 		width: 750px;
-		//background-color: #0000FF;
-		border-width: 2px;
-		border-style: solid;
+
+		background-color: white;
 		border-radius: 5px;
-		-moz-border-radius: 5px;
-		border-color: #B5B5B5;
-		transition: background-color 0.5s,  border-color 0.5s,
-								width 0.5s;
-		-moz-transition: background-color 0.5s,  border-color 0.5s,
-										width 0.5s;
+		padding: 10px;
+
 	}
 
-	.article:hover {
-		background-color: #F0FFF0;
-		transition: background-color 1s, border-color 1s
-								width 1s;
-		-moz-transition: background-color 1s, border-color 1s
-									width 1s;
-		border-width: 2px;
-		border-color: #B0E0E6;
-		width: 800px;
+	.article_comment {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 5px;
+
+		border-radius: 5px;
+
+		width:  750px;
+		padding: 10px;
+
+		background-color: #C2C2C2;
+
+		.title {
+			padding: 10px;
+			font-size: 20px;
+		}
+	}
+
+	.article_tags {
+		font-size: 10px;
+	}
+
+	.article_bottom {
+		//border: 1px solid gray;
+		//border-radius: 5px;
+		//padding: 3px;
+		//background-color: red;
 	}
 
 	.content {
 		width: 600px;
-		border-width: 1px;
-		border-color: #383838;
-		border-style: dashed;
-		background-color: #8DB6CD;
+		border-left:  3px solid #C7C7C7;
+		padding-left: 7px;
 	}
 
 	.title {
 		a:link { 
 			text-decoration: none; 
-			color: #545454; 
+			color: #4682B4; 
 		}
 
 		a:visited {
 			text-decoration: none;
-			color: #545454;
+			color: #4682B4;
 		}
 
 		a:hover {
@@ -71,8 +83,6 @@
 			text-decoration: none;
 			color: red;
 		}
-		
-		background-color: #E0E0E0;
 	}
 
 	.comment_list {
@@ -80,29 +90,21 @@
 	}
 
 	.comment {
-		.tr {
-			padding: 0px;
-			border-width: 0px;
-		}
-		.td {
-			border-width: 0px;
-			padding: 0px;
-		}
+
+		padding: 5px;
+		margin-top: 2px;
+		background-color: white;
+		border-radius: 3px;
+
 		.user {
 			border-width: 0px;
-			background-color: #B2DFEE;
+			background-color: white;
 
 		}
-		margin-top: 2px;
-		background-color: #D1EEEE;
-		border-radius: 3px;
-		border-width: 2px;
-		border-color: #B2DFEE; 
-		border-style: solid;
-		width: 500px;
 	}
 
 	.tags {
+		display: none;
 		margin-top: 5px;
 		border-radius: 3px;
 		width: 100px;

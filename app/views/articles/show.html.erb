@@ -1,49 +1,54 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<div class="layout">
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content.html_safe %>
-</p>
+	<p id="notice"><%= notice %></p>
+	<div class="article">
+		<div class="title">
+			<h1><%= @article.title %></h1>
+		</div>
+		<div>
+			Posted:<%= @article.date %> By:<%= @article.author %>
+		</div>
+		<div class="content">
+			<p><%= @article.content.html_safe %></p>
+		</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @article.date %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @article.author %>
-</p>
-
-<p>
-  <strong>Tags:</strong>
-  <%= @article.tags %>
-	</p>
-
-<%= link_to 'Edit', edit_article_path(@article), method: :get %>
-<%= link_to 'Back', articles_path %>
-<div> 
-	<% @comment_list.each do |c| %>
-		<table class="comment">
-			<tr>
-				<td class="user"><%= c.nick + " says:"  %></td>
-			</tr>
-			<tr>
-				<td><%= c.content %></td>
-			</tr>
-		</table>
-	<% end %>
-</div>
-<div class="comment_list">
-	<p>This is the comment area</p>
-	<% if flash[:alert] %>
-		<p><%= flash[:alert] %></p>
-	<% end %>
-	<%= render @comment %>
-</div>
+		<div class="article_bottom">
+			<div class="article_tags">#
+				<% flag = true %>
+				<% @article.tags.split(/,/).each do |t| %>
+					<% if flag then %>
+						<% flag = false %>
+					<% else %>
+						<%= ',' %>
+					<% end %>
+					<%= link_to "#{t}", tag_search_path(tag: t) %>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="article_comment">
+		<div class="title">
+			Comments:
+		</div>
+		<div> 
+			<% @comment_list.each do |c| %>
+				<div class="comment">
+					<div>
+						<%= c.nick + " says:"  %>
+					</div>
+					<div>
+						<%= c.content %>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="comment_list">
+			<p>This is the comment area</p>
+			<% if flash[:alert] %>
+				<p><%= flash[:alert] %></p>
+			<% end %>
+			<%= render @comment %>
+		</div>
+	</div>
 </div>
