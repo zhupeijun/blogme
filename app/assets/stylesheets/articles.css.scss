@@ -8,6 +8,69 @@
 		width: 800px;
 		//background-color: blue;
 	}
+
+	.edit_page {
+		padding: 10px;
+
+		background-color: #C6E1D2;
+	}
+
+	.article_edit {
+
+		.article_edit_title {
+
+			margin-top: 10px;
+
+			input {
+				border-radius: 2px;
+				border: none;
+
+				width: 500px;
+				padding: 7px;
+			}
+		}
+
+		.article_edit_content {
+			margin-top: 10px;
+		}
+
+		.article_edit_tags {
+
+			margin-top: 10px;
+
+			input {
+
+				border-radius: 2px;
+				border: none;
+
+				width: 300px;
+				padding: 7px;
+
+			}
+
+			
+		}
+
+		.article_edit_submit {
+
+			margin-top: 10px;
+
+			input {
+				padding: 7px;
+				border-radius: 2px;
+				border: none;
+
+				background-color: white;
+			}
+			
+		}
+		
+
+
+	}
+
+
+
 	.article_list {
 
 		//width: 785px;
@@ -22,8 +85,8 @@
 		margin-right: auto;
 		width: 750px;
 
-		background-color: white;
-		border-radius: 5px;
+		border: 1px solid #C6E1D2;
+		border-radius: 2px;
 		padding: 10px;
 
 	}
@@ -33,12 +96,12 @@
 		margin-right: auto;
 		margin-top: 5px;
 
-		border-radius: 5px;
+		border-radius: 2px;
 
 		width:  750px;
 		padding: 10px;
 
-		background-color: #F5FFFA;
+		background-color: #C6E1D2;
 
 		.title {
 			padding-top: 20px;
@@ -102,7 +165,7 @@
 		padding: 5px;
 		margin-top: 2px;
 		background-color: white;
-		border-radius: 3px;
+		border-radius: 2px;
 
 		.user {
 			border-width: 0px;
@@ -116,25 +179,43 @@
 		input {
 			padding: 7px;
 			border: 1px solid #ADD8E6;
-			border-radius: 5px;
+			border-radius: 2px;
 
 			margin: 5px;
+
+
+		}
+
+		input:focus {
+			background-color: #F7BAA5;
+
 		}
 
 		textarea {
 			padding: 7px;
 			border: 1px solid #ADD8E6;
-			border-radius: 5px;
+			border-radius: 2px;
 
 			margin: 5px;
 		}
 	}
 
 	.tags {
-		display: none;
+		//display: none;
 		margin-top: 5px;
 		border-radius: 3px;
-		width: 100px;
+		width: 170px;
 		background-color: #CAE1FF;
+	}
+
+
+	.paginate {
+
+		padding: 10px;
+
+		text-align: center;
+
+		border: 1px solid gray;
+		//background-color: red;
 	}
 }

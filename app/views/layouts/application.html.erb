@@ -9,25 +9,21 @@
 <body class='<%= controller.controller_name %>'>
 	<div id="main">
 		<div id="header">
-			<div>
-				
-				<% if session[:user_id] %>
-					<%= User.find_by_id(session[:user_id]).name %>
-					<%= link_to 'Logout', logout_url, method: :delete %>
-				<% else %>
-					<%= link_to 'SignIn', login_url %>
-				<% end %>
+			<div class="header_div">
 
-				<%= link_to 'New Article', new_article_path, method: :get %>
+				<div class="logo">
+					<%= link_to 'Blog me', articles_url %>
+				</div>
 
-				<%= link_to 'Index', articles_url %>
-				
-			</div>
-			<div>
-				<%= form_tag '/search', method: :new do %>
-					<%= text_field_tag :key_words %>
-					<%= submit_tag 'Search' %>
-				<% end %>
+				<div style="float: right">
+					
+					<% if session[:user_id] %>
+						<%= User.find_by_id(session[:user_id]).name %>
+						<%= link_to 'Logout', logout_url, method: :delete %>
+					<% else %>
+						<%= link_to 'SignIn', login_url %>
+					<% end %>
+				</div>
 			</div>
 		</div>
 		<div id="layout">
@@ -35,13 +31,31 @@
 				<%= yield %>
 			</div>
 			<div class="rightbar">
+				<div class="search_bar">
+					<%= form_tag '/search', method: :new do %>
+						<div>
+							<%= text_field_tag :key_words, '', size: 17 %>
+						</div>
+						<div>
+							<%= submit_tag 'S' %>
+						</div>
+					<% end %>
+				</div>
+
+				<div class="tags">
+					<%= render "article_tags/article_tag" %>
+				</div>
+
 				
+
+				<div style="display: none">
+					<%= link_to 'New Article', new_article_path, method: :get %>
+				</div>
 			</div>
 		</div>
 		<div id="bottom">
 			bottom
 		</div>
 	</div>
-
 </body>
 </html>

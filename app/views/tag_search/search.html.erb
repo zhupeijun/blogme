@@ -1,13 +1,11 @@
-<h1>TagSearch#search</h1>
+<h1>Tag Search Result</h1>
 
 <div>
 	<table>
 		<% @articles.each do |a| %>
 			<tr>
 				<td>
-					<%= a.title %> <br>
-					<%= a.author %> <br>
-					<%= a.date %> <br>
+					<%= link_to "#{a.title}", a %>
 				</td>
 			</td>
 		<% end %>

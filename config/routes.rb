@@ -1,5 +1,6 @@
 Blogme::Application.routes.draw do
 
+  get "admin/index"
   get "tag_search/search"
   resources :article_tags
 
@@ -12,6 +13,10 @@ Blogme::Application.routes.draw do
 		post 'login' => :create
 		delete 'logout' => :destroy
 	end
+
+  controller :admin do 
+    get 'admin' => :index
+  end 
 
 	controller :search do
 		post 'search' => :show

@@ -1,5 +1,6 @@
 class ArticleTagsController < ApplicationController
   before_action :set_article_tag, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authorize
 
   # GET /article_tags
   # GET /article_tags.json

@@ -1,9 +1,10 @@
 class SearchController < ApplicationController
-  def new
+	skip_before_filter :authorize
+	def new
 
-  end
+	end
 
-  def show
+	def show
 
 		key_words = params[:key_words].gsub(
 			/(\ )+/, '%')
@@ -15,5 +16,5 @@ class SearchController < ApplicationController
 				"title like '%#{key_words}%' or " + 
 				"content like '%#{key_words}%'")
 		end
-  end
+	end
 end

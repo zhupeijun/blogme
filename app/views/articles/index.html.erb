@@ -27,19 +27,21 @@
 							<%= link_to "#{t}", tag_search_path(tag: t) %>
 						<% end %>
 					</div>
-					<div style="display: none">
-						<%= link_to 'Show', article %> 
-						<%= link_to 'Edit', edit_article_path(article),
-										method: :get %>
-						<%= link_to 'Destroy', article,
-								method: :delete, data: 
-								{ confirm: 'Are you sure?' } %>
-					</div>
+					<% if session[:user_id] then %>
+						<div>
+							<%= link_to 'Show', article %> 
+							<%= link_to 'Edit', edit_article_path(article),
+											method: :get %>
+							<%= link_to 'Destroy', article,
+									method: :delete, data: 
+									{ confirm: 'Are you sure?' } %>
+						</div>
+					<% end %>
 				</div>
 			</div>
 		<% end %>
 	</div>
-<div>
+<div class="paginate">
 	<%= paginate @articles %>
 </div>
 </div>
