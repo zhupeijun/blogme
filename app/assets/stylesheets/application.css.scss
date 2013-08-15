@@ -13,48 +13,104 @@
  */
 
 
-
 #main {
 	margin: 0 auto;
-	//background-color: #FCE7A6;
+	//background-color: yellow;
 }
+
 #header {
 	
-	background-color: #6191A5;
+	height: 80px;
+	background-color: #3B3B3B;
+
+	.header_div {
+
+		width: 900px;
+		margin: 0 auto;
+
+		div {
+			display: inline-block;
+		}
+	}
+	
+}
+
+.login {
+	border: none;
+	margin-right: 0px;
+
+	width: 100px;
+
+	background-color: red;
 }
 
 
 .logo {
+	margin-left: 5px;
+	margin-top: 25px;
 	font-size: 27px;
 	font-weight: bold;
 
-	color:  white;
+	background-color: blue;
+	border: none;
+
+	color:  #6191A5;
 
 	a {
 		text-decoration: none;
-		color: white;
+		color: #6191A5;
 	}
 
 	a:visited {
-		color: white;
+		color: #6191A5;
+	}
+
+	a:hover {
+		color: #FCE7A6;
+		background: none;
 	}
 }
 
 .search_bar {
-	div {
-		display: inline-block;
-	}
-}
 
-.header_div {
-	width: 1000px;
-	margin: 0 auto;
-	padding: 20px;
+	margin-top: 10px;
 
 	div {
 		display: inline-block;
 	}
+
+	.search_field {
+
+		input {
+			padding: 10px;
+			width: 170px;
+			margin-right: 0px;
+
+			border: 1px solid #C9C9C9;
+		}
+	}
+
+	.search_btn {
+
+		input {
+			margin-left: 0px;
+			padding: 10px;
+			border: 1px solid #C9C9C9;
+			background-color: #24AFD0;
+			color: white;
+		}
+
+	}
+
+	.search_table {
+		tr, td {	
+			padding: 0px;
+			margin: 0px;
+			border: none;
+		}
+	}
 }
+
 
 
 #bottom {
@@ -63,6 +119,8 @@
 	background-color: #303030;
 
 	height: 200px;
+
+	display: none;
 }
 
 
@@ -71,12 +129,13 @@
 
 	margin: 0 auto;
 
-	width: 1000px;
-	//background-color: black;
+	//background-color: red;
+	width: 1050px;
 }
 
 .yield {
-	width: 810px;
+	width: 750px;
+
 	//background-color: yellow;
 
 	display: inline-block;
@@ -84,33 +143,89 @@
 
 .rightbar {
 	vertical-align: top;
-	width: 180px;
-	//ackground-color: red;
+	width: 280px;
+	//background-color: #098;
 	display: inline-block;
+}
+
+.paginate {
+
+	padding: 15px;
+
+	text-align: center;
+
+	//border: 1px solid gray;
+
+	width: 700px;
+
+	margin: 0 auto;
+}
+
+.pagination {
+	span {
+		margin: 2px;
+		padding: 5px;
+
+		&:hover {
+			padding: 5px;
+			background: #24AFD0;
+			color: white;
+			border-radius: 3px;
+		}
+
+		a {
+			padding: 5px;
+			border-radius: 3px;
+			text-decoration: none;
+		}
+
+		a:hover {
+			background: none;
+		}
+	}
 }
 
 /*kaminari page css*/
 .kaminari_page, .kaminari_first, .kaminari_prev, .kaminari_next, .kaminari_last {
 
-	margin: 2px;
-
-	padding: 3px;
-
-	border-radius: 1px;
-	color: black;
-
-	background-color: #E3E3E3;
-
 }
 
 
 .kaminari_page_current {
+	background-color: #24AFD0;
+	border-radius: 3px;
 	color: white;
-	background-color: black;
+}
 
-	margin: 2px;
 
-	padding: 3px;
+.tags {
+	//display: none;
+	margin-top: 10px;
+	width: 250px;
+	background-color: white;
+	border: 1px solid #C9C9C9;
+	padding: 10px;
 
-	border-radius: 1px;
+	color: #555555;
+
+	a {
+		text-decoration: none;
+
+	}
+}
+
+.tags_title {
+	border-bottom: 1px solid #C9C9C9;
+
+	font-size: 18px;
+	color: #24AFD0;
+
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+.tags_content {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }

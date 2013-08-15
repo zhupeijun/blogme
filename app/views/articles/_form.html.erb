@@ -22,7 +22,13 @@
 			<%= f.text_field :tags %>
 		</div>
 		<div class="article_edit_submit">
-			<%= f.submit %>
+			<table>
+				<tr>
+					<td class="finished">
+						<%= f.submit 'Finished'%>
+					</td>
+				</tr>
+			</table>
 		</div>
 	<% end %>
 </div>

@@ -1,62 +1,62 @@
 <div class="layout">
-	<p id="notice"><%= notice %></p>
-	<div class="article">
-		<div class="title">
-			<h2><%= @article.title %></h2>
-		</div>
-		<div>
-			Posted:<%= @article.date %> By:<%= @article.author %>
-		</div>
-		<div class="content">
-			<p><%= @article.content.html_safe %></p>
-		</div>
-
-		<div class="article_bottom">
-			<div class="article_tags">#
-				<% flag = true %>
-				<% @article.tags.split(/,/).each do |t| %>
-					<% if flag then %>
-						<% flag = false %>
-					<% else %>
-						<%= ',' %>
+	<div class="article_list">
+		<div class="article">
+			<div>
+			 	<div class="title">
+					<p><%= link_to "#{@article.title}", @article %></p>
+				</div>
+				<div class="datetime">
+					Posted: <%= @article.date.strftime('%Y-%m-%d').to_s %> By:<%= @article.author %>
+				</div>
+				<div class="content">
+					<p><%= truncate_html(@article.content, length: 500) %></p>
+				</div>
+			</div>
+			<div class="article_bottom">
+				<div class="article_tags">#
+					<% flag = true %>
+					<% @article.tags.split(/,/).each do |t| %>
+						<% if flag then %>
+							<% flag = false %>
+						<% else %>
+							<%= ',' %>
+						<% end %>
+						<%= link_to "#{t}", tag_search_path(tag: t) %>
 					<% end %>
-					<%= link_to "#{t}", tag_search_path(tag: t) %>
+				</div>
+				<% if session[:user_id] then %>
+					<div class="article_operate">
+						<%= link_to 'Edit', edit_article_path(@article),
+										method: :get %> |
+						<%= link_to 'Destroy', @article,
+								method: :delete, data: 
+								{ confirm: 'Are you sure?' } %>
+					</div>
 				<% end %>
 			</div>
-
-			<% if session[:user_id] then %>
-				<div> 
-					<%= link_to 'Edit', edit_article_path(@article),
-									method: :get %>
-					<%= link_to 'Destroy', @article,
-							method: :delete, data: 
-							{ confirm: 'Are you sure?' } %>
-				</div>
-			<% end %>
-
 		</div>
-	</div>
-	<div class="article_comment">
-		<div class="title">
-			Comments:
-		</div>
-		<div> 
-			<% @comment_list.each do |c| %>
-				<div class="comment">
-					<div>
-						<%= c.nick + " says:"  %>
+		<div class="article_comment">
+			<div class="comment_title">
+				<p><%= @comment_list.count %> comments</p>
+			</div>
+			<div class="comments"> 
+				<% @comment_list.each do |c| %>
+					<div class="comment">
+						<div class="comment_author">
+							<span class="author"><%= c.nick %></span>
+						</div>
+						<div class="comment_content">
+							<%= c.content %>
+						</div>
 					</div>
-					<div>
-						<%= c.content %>
-					</div>
-				</div>
-			<% end %>
-		</div>
-		<div class="comment_list">
-			<% if flash[:alert] %>
-				<p><%= flash[:alert] %></p>
-			<% end %>
-			<%= render @comment %>
+				<% end %>
+			</div>
+			<div class="comment_submit">
+				<% if flash[:alert] %>
+					<p><%= flash[:alert] %></p>
+				<% end %>
+				<%= render @comment %>
+			</div>
 		</div>
 	</div>
 </div>

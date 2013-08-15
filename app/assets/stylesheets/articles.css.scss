@@ -5,14 +5,20 @@
 
 	.layout {
 		margin-left: 0;
-		width: 800px;
 		//background-color: blue;
 	}
 
 	.edit_page {
+
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
+
 		padding: 10px;
 
-		background-color: #C6E1D2;
+		border: 1px solid #C9C9C9;
+		background-color: white;
 	}
 
 	.article_edit {
@@ -22,8 +28,7 @@
 			margin-top: 10px;
 
 			input {
-				border-radius: 2px;
-				border: none;
+				border: 1px solid #24AFD0;
 
 				width: 500px;
 				padding: 7px;
@@ -40,8 +45,7 @@
 
 			input {
 
-				border-radius: 2px;
-				border: none;
+				border: 1px solid #24AFD0;
 
 				width: 300px;
 				padding: 7px;
@@ -57,10 +61,11 @@
 
 			input {
 				padding: 7px;
-				border-radius: 2px;
+				border-radius: 3px;
 				border: none;
-
-				background-color: white;
+				background-color: #24AFD0;
+				color: white;
+				width: 100px;
 			}
 			
 		}
@@ -69,7 +74,39 @@
 
 	}
 
+	.article_operate {
+		border-top: 1px solid  #C9C9C9;
+		margin-top: 20px;
 
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		a:link {
+
+			text-decoration: none;
+			color: #DC143C;
+
+			padding: 2px;
+
+		}
+
+		a:visited {
+
+			color: #DC143C;
+
+			padding: 2px;
+
+		}
+
+		a:hover {
+
+			background-color: #24AFD0;
+			color: white;
+			border-radius: 2px;
+			padding: 2px;
+
+		}
+	}
 
 	.article_list {
 
@@ -83,11 +120,12 @@
 		margin-top: 10px;
 		margin-left: auto;
 		margin-right: auto;
-		width: 750px;
+		width: 700px;
 
-		border: 1px solid #C6E1D2;
-		border-radius: 2px;
 		padding: 10px;
+
+		border: 1px solid #C9C9C9;
+		background-color: white;
 
 	}
 
@@ -96,12 +134,13 @@
 		margin-right: auto;
 		margin-top: 5px;
 
-		border-radius: 2px;
 
-		width:  750px;
-		padding: 10px;
+		width:  720px;
 
-		background-color: #C6E1D2;
+		
+
+		background-color: white;
+		border: 1px solid #C9C9C9;
 
 		.title {
 			padding-top: 20px;
@@ -111,6 +150,41 @@
 			font-size: 20px;
 			color: gray;
 		}
+	}
+
+	.comment_title {
+
+		padding-left: 10px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		background-color: #555555;
+		
+
+		p {
+			font-size: 20px;
+			color: white;
+		}
+
+
+	}
+
+	.comment {
+		border-bottom: 1px solid #C9C9C9;
+
+		padding-left: 10px;
+		padding-right: 10px;
+
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	.comments {
+
+
+	}
+	.comment_submit {
+		background-color: #F0F2F1;
+		padding: 10px;
 	}
 
 	.article_tags {
@@ -124,29 +198,39 @@
 		//background-color: red;
 	}
 
+	.comment_content {
+
+	}
+
+	.comment_author {
+		.author {
+
+			font-weight: bold;
+			color: #53868B;
+		}
+	}
+
 	.content {
 		width: 600px;
-		border-left:  3px solid #C7C7C7;
-		padding-left: 7px;
+		color: #7F7F7F;
 	}
 
 	.title {
-		color: #4682B4; 
-
 		a:link { 
 			text-decoration: none; 
-			color: #4682B4; 
+			color: #24AFD0; 
+			font-size: 25px;
 		}
 
 		a:visited {
 			text-decoration: none;
-			color: #4682B4;
+			color: #24AFD0;
 		}
 
 		a:hover {
 			text-decoration: none;
 			color: white;
-			background-color: dark-gray;
+			background-color: #24AFD0;
 			transition: background-color 1s;
 			border-radius: 2px;
 		}
@@ -157,65 +241,37 @@
 		}
 	}
 
-	.comment_list {
+	.datetime {
+		border-bottom: 1px solid #C9C9C9;
 	}
 
-	.comment {
-
-		padding: 5px;
-		margin-top: 2px;
-		background-color: white;
-		border-radius: 2px;
-
-		.user {
-			border-width: 0px;
-			background-color: white;
-
-		}
+	.comment_list {
 	}
 
 	.comment_field {
 
 		input {
 			padding: 7px;
-			border: 1px solid #ADD8E6;
-			border-radius: 2px;
 
-			margin: 5px;
+			border: 1px solid #24AFD0;
 
-
-		}
-
-		input:focus {
-			background-color: #F7BAA5;
+			border-radius: 3px;
+			margin-top: 10px;
 
 		}
 
 		textarea {
 			padding: 7px;
-			border: 1px solid #ADD8E6;
-			border-radius: 2px;
 
-			margin: 5px;
+			border: 1px solid #24AFD0;
+
+			border-radius: 3px;
+			margin-top: 10px;
 		}
 	}
 
-	.tags {
-		//display: none;
-		margin-top: 5px;
-		border-radius: 3px;
-		width: 170px;
-		background-color: #CAE1FF;
-	}
+	
 
 
-	.paginate {
-
-		padding: 10px;
-
-		text-align: center;
-
-		border: 1px solid gray;
-		//background-color: red;
-	}
+	
 }

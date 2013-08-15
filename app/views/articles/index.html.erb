@@ -4,11 +4,9 @@
 			<div class="article">
 				<div>
 				 	<div class="title">
-						<h2>
-								<%= link_to "#{article.title}", article %>
-						</h2>
+						<p><%= link_to "#{article.title}", article %></p>
 					</div>
-					<div>
+					<div class="datetime">
 						Posted: <%= article.date.strftime('%Y-%m-%d').to_s %> By:<%= article.author %>
 					</div>
 					<div class="content">
@@ -27,21 +25,23 @@
 							<%= link_to "#{t}", tag_search_path(tag: t) %>
 						<% end %>
 					</div>
-					<% if session[:user_id] then %>
-						<div>
-							<%= link_to 'Show', article %> 
-							<%= link_to 'Edit', edit_article_path(article),
-											method: :get %>
-							<%= link_to 'Destroy', article,
-									method: :delete, data: 
-									{ confirm: 'Are you sure?' } %>
+					
+						<div class="article_operate">
+							<%= link_to 'Read more', article %> |
+							<% if session[:user_id] then %> 
+								<%= link_to 'Edit', edit_article_path(article),
+												method: :get %> |
+								<%= link_to 'Destroy', article,
+										method: :delete, data: 
+										{ confirm: 'Are you sure?' } %>
+
+							<% end %>
 						</div>
-					<% end %>
 				</div>
 			</div>
 		<% end %>
 	</div>
-<div class="paginate">
-	<%= paginate @articles %>
-</div>
+	<div class="paginate">
+		<%= paginate @articles %>
+	</div>
 </div>
