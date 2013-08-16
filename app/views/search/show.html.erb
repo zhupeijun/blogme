@@ -1,17 +1,24 @@
-
-<div class="title">
-	<h1>Search result</h1>
+<div class="search_page">
+	<div class="search_title">
+		<p>Search Result</p>
+	</div>
+	<div>
+			<% @articles.each do |a| %>
+				<div class="article_item">
+				 	<div class="title">
+						<p><%= link_to "#{a.title}", a %></p>
+					</div>
+					<div class="datetime">
+						Posted: <%= a.date.strftime('%Y-%m-%d').to_s %> By:<%= a.author %>
+					</div>
+					<div class="content">
+						<p><%= truncate_html(a.content, length: 100) %></p>
+					</div>
+				</div>
+			<% end %>
+			<div class="result_count">
+				Total: <%= @articles.count %>
+			</div>
+	</div>
 </div>
 
-<div>
-	<table>
-		<% @articles.each do |a| %>
-		<tr>
-			<td>
-				<%= link_to "#{a.title}", 
-						article_path(:id => a.id)%>
-			</td>
-		</tr>
-	<% end %>
-	</table>
-</div>

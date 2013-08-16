@@ -35,14 +35,6 @@
 	
 }
 
-.login {
-	border: none;
-	margin-right: 0px;
-
-	width: 100px;
-
-	background-color: red;
-}
 
 
 .logo {
@@ -85,19 +77,30 @@
 			padding: 10px;
 			width: 170px;
 			margin-right: 0px;
-
 			border: 1px solid #C9C9C9;
 		}
 	}
 
 	.search_btn {
 
+
+
 		input {
-			margin-left: 0px;
-			padding: 10px;
-			border: 1px solid #C9C9C9;
 			background-color: #24AFD0;
+			width: 70px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+			display: inline-block;
+			border-radius: 3px;
 			color: white;
+			border: none;
+
+			&:hover{
+				background-color: #CD2626;
+				color: white;
+				cursor: pointer;
+			}
 		}
 
 	}
@@ -162,26 +165,51 @@
 }
 
 .pagination {
+
+
+
+	.kaminari_page_current {
+		
+		background-color: #CD2626;
+		border-radius: 3px;
+		color: white;
+	}
+	
 	span {
-		margin: 2px;
-		padding: 5px;
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #CAE1FF; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
 
-		&:hover {
-			padding: 5px;
-			background: #24AFD0;
-			color: white;
-			border-radius: 3px;
-		}
+	a:link {
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #24AFD0; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
 
-		a {
-			padding: 5px;
-			border-radius: 3px;
-			text-decoration: none;
-		}
+	a:visited {
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #24AFD0; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
 
-		a:hover {
-			background: none;
-		}
+	a:hover {
+		background-color: #CD2626;
 	}
 }
 
@@ -190,12 +218,6 @@
 
 }
 
-
-.kaminari_page_current {
-	background-color: #24AFD0;
-	border-radius: 3px;
-	color: white;
-}
 
 
 .tags {
@@ -228,4 +250,71 @@
 .tags_content {
 	padding-top: 10px;
 	padding-bottom: 10px;
+}
+
+
+
+
+.login {
+	width: 250px;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: white;
+	border: 1px solid #C9C9C9;
+
+	.login_div_title {
+		border-bottom: 1px solid #C9C9C9;
+
+		font-size: 18px;
+		color: #24AFD0;
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.login_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+
+	}
+
+	.register_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+		margin-left: 10px;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+	}
+
+
+	a:hover {
+		background: none;
+	}
+	
 }

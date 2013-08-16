@@ -6,3 +6,44 @@
 .title {
 	color: #EF6C42;
 }
+
+
+.search {
+
+	.search_page {
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
+
+		padding: 10px;
+
+
+		border: 1px solid #C9C9C9;
+		
+		//background-color: #CAE1FF;
+		background-color: white;
+	}
+	
+
+	.search_title {
+		border-bottom: 1px solid #C9C9C9;
+
+		p {
+			color: #24AFD0;
+			font-size: 25px;
+		}
+	}
+
+	.article_item {
+		border-bottom: 1px solid #C9C9C9;
+	}
+
+	.result_count {
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		font-size: 18px;
+		color: gray;
+	}
+}

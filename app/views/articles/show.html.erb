@@ -9,7 +9,7 @@
 					Posted: <%= @article.date.strftime('%Y-%m-%d').to_s %> By:<%= @article.author %>
 				</div>
 				<div class="content">
-					<p><%= truncate_html(@article.content, length: 500) %></p>
+					<p><%= @article.content.html_safe %></p>
 				</div>
 			</div>
 			<div class="article_bottom">

@@ -6,6 +6,8 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="kaminari_next">
-  <%= link_to_unless current_page.last?, 'Next', url, :rel => 'next', :remote => remote %>
-</span>
+<% if current_page.last? then %>
+	<span>Next</span>
+<% else %>
+	<%= link_to 'Next', url, :rel => 'next', :remote => remote %>
+<% end %>

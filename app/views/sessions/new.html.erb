@@ -1,23 +1,27 @@
-<h1>Please Log In</h1>
+<div class="login_page">
+	<div class="login_title">
+		<p>Please log in</p>
+	</div>
+	<div class="login_window">
+		<%= form_tag do %>
+		<div class="login_label">User Name</div>
+		<div class="login_user_name_field">
+			<%= text_field_tag :name, params[:name] %>
+		</div>
+		<div class="login_label">Passowrd</div>
+		<div class="login_password_field">
+			<%= password_field_tag :password, params[:password] %>
+		</div>
+		<div class="login_submit">
+			<%= submit_tag 'Login' %>
+		</div>
+		<% end %>
+		<div>
+			<% if notice %>
+			<p class="errormsg"><%= notice %></p>
+			<% end %>
+		</div>
+	</div>
 
-<table>
-	<%= form_tag do %>
-		<tr>
-			<td><%= label_tag :name, 'UserName' %></td>
-			<td><%= text_field_tag :name, params[:name], size: 40%></td>
-		</tr>
-		<tr>
-			<td><%= label_tag :password, 'Password' %></td>
-			<td><%= password_field_tag :password, params[:password], size: 40 %></td>
-		</tr>
-		<tr>
-			<td><%= submit_tag 'Login' %></td>
-		</tr>
-	<% end %>
-</table>
-<div>
-	<% if notice %>
-	<p class="errormsg"><%= notice %></p>
-	<% end %>
 </div>
 		

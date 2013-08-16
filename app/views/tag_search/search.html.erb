@@ -1,13 +1,25 @@
-<h1>Tag Search Result</h1>
-
-<div>
-	<table>
-		<% @articles.each do |a| %>
-			<tr>
-				<td>
-					<%= link_to "#{a.title}", a %>
-				</td>
-			</td>
-		<% end %>
-	</table>
+<div class="tag_search_page">
+	<div class="tag_search_title">
+		<p>Tag Search Result</p>
+	</div>
+	<div>
+			<% @articles.each do |a| %>
+				<div class="article_item">
+				 	<div class="title">
+						<p><%= link_to "#{a.title}", a %></p>
+					</div>
+					<div class="datetime">
+						Posted: <%= a.date.strftime('%Y-%m-%d').to_s %> By:<%= a.author %>
+					</div>
+					<div class="content">
+						<p><%= truncate_html(a.content, length: 100) %></p>
+					</div>
+				</div>
+			<% end %>
+			<div class="result_count">
+				Total: <%= @articles.count %>
+			</div>
+	</div>
 </div>
+
+

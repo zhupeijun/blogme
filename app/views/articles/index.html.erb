@@ -27,9 +27,9 @@
 					</div>
 					
 						<div class="article_operate">
-							<%= link_to 'Read more', article %> |
+							<%= link_to 'Read more', article %> 
 							<% if session[:user_id] then %> 
-								<%= link_to 'Edit', edit_article_path(article),
+								| <%= link_to 'Edit', edit_article_path(article),
 												method: :get %> |
 								<%= link_to 'Destroy', article,
 										method: :delete, data: 
