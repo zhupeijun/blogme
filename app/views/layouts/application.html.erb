@@ -8,25 +8,11 @@
 </head>
 <body class='<%= controller.controller_name %>'>
 	<div id="main">
-		<div id="header" style="display: none">
-			<div class="header_up">
-
+		<div id="header">
+			<div class="header_div">
 				<div class="logo">
 					<%= link_to 'Blog me', articles_url %>
 				</div>
-
-				<div style="float: right">
-					
-					<% if session[:user_id] %>
-						<%= User.find_by_id(session[:user_id]).name %>
-						<%= link_to 'Logout', logout_url, method: :delete %>
-					<% else %>
-						<%= link_to 'SignIn', login_url %>
-					<% end %>
-				</div>
-			</div>
-			<div class="header_down">
-				
 			</div>
 		</div>
 		<div id="layout">
@@ -68,23 +54,56 @@
 							</div>
 						</div>
 
-						<div class="login">
-							<div class="login_div_title">Login/Register</div>
-							<table cellpadding="0" cellspacing="0"> 
-								<tr>
-									<td>
-										<%= link_to login_url do %>
-											<span class="login_btn">Login</span>
-										<% end %>
-									</td>
-									<td>
-										<%= link_to new_user_path do %>
-											<span class="register_btn">Register</span>
-										<% end %>
-									</td>
-								</tr>
-							</table>
-						</div>
+						<% if session[:user_id] == nil then %>
+							<div class="login">
+								<div class="login_div_title">Login/Register</div>
+								<table cellpadding="0" cellspacing="0"> 
+									<tr>
+										<td>
+											<%= link_to login_url do %>
+												<span class="login_btn">Login</span>
+											<% end %>
+										</td>
+										<td>
+											<%= link_to new_user_path do %>
+												<span class="register_btn">Register</span>
+											<% end %>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<% else %>
+							<div class="user_info">
+								<div class="user_info_title">User</div>
+								<% user = User.find_by_id(session[:user_id]) %>
+								<div class="user_content">
+									<table>
+										<tr>
+											<td class="user_info_label">User Name</td>
+											<td class="user_info_value">
+												<%= link_to admin_url do %>
+													<span><%= user.name %></span>
+												<% end %>
+											</td>
+
+										</tr>
+										<tr>
+											<td class="user_info_label">Articles</td>
+											<td class="user_info_value">
+												<%= Article.where("author = '#{user.name}'").count %>
+											</td>
+										</tr>
+									</table>
+								</div>
+
+								<div>
+									<%= link_to logout_url, method: :delete do %>
+										<span class="logout_btn">Logout</span>
+									<% end %>
+								</div>
+							</div>
+						<% end %>
+
 						<div style="display: none">
 							<%= link_to 'New Article', new_article_path, method: :get %>
 						</div>

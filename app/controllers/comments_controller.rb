@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    @comments = Comment.order("id desc").first(3)
   end
 
   # GET /comments/1
@@ -61,8 +61,13 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
+
+    puts "------------------------"
+    puts params[:article_id]
+     puts "------------------------"
+
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to article_path(params[:article_id]) }
       format.json { head :no_content }
     end
   end

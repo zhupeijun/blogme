@@ -42,6 +42,11 @@
 			<div class="comments"> 
 				<% @comment_list.each do |c| %>
 					<div class="comment">
+						<% if session[:user_id] then %>
+							<div style="float: right">
+								<%= link_to 'delete', comment_path(c, article_id: c.article_id), method: :delete  %>
+							</div>
+						<% end %>
 						<div class="comment_author">
 							<span class="author"><%= c.nick %></span>
 						</div>

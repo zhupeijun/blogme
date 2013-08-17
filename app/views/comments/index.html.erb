@@ -1,35 +1,17 @@
-<h1>Listing comments</h1>
+<div class="admin_page">
+	<%= render :template => 'admin/guide' %>
+	<div class="comment_list">
+		<% @comments.each do |c| %>
+			<div class="comment_item">
+				<div>
+					<%= c.nick %> @ <%= link_to "#{Article.find(c.article_id).title}", article_path(c.article_id) %>
+				</div>
+				<div>
+					<%= c.content %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Article</th>
-      <th>Nick</th>
-      <th>Email</th>
-      <th>Content</th>
-      <th>Ifnotify</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.article_id %></td>
-        <td><%= comment.nick %></td>
-        <td><%= comment.email %></td>
-        <td><%= comment.content %></td>
-        <td><%= comment.ifnotify %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
