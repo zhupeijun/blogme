@@ -1,5 +1,24 @@
-<h1>New comment</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', comments_path %>
+<div class="comment_field">
+	<%= form_for Comment.new do |f| %>
+		<%= f.hidden_field :article_id, { :value => @article.id } %> 
+		<% if session[:user_id] %>
+			<% login_user = User.find(session[:user_id]) %>
+			<%= f.hidden_field :nick, { :value => login_user.name } %>
+			<%= f.hidden_field :email, { :value => login_user.email } %>
+			<%= f.hidden_field :user_id, { :value => session[:user_id] } %>
+		<% else %>
+			<div>
+				<%= f.text_field :nick, size: 50 %> <%= f.label 'Nick' %>
+			</div>
+			<div>
+				<%= f.text_field :email, size: 50 %> <%= f.label 'Email' %>
+			</div>
+		<% end %>
+		<div>
+			<%= f.text_area :content, rows: 12, cols: 80 %>
+		</div>
+		<div class="actions">
+			<%= f.submit 'Submit'%>
+		</div>
+	<% end %>
+</div>

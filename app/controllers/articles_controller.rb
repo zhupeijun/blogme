@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 	def show
 		@comment = Comment.new
 		@comment.article_id = @article.id
-		@comment_list = Comment.where("article_id = #{@article.id}")
+		@comment_list = Comment.where("article_id = '#{@article.id}'")
 	end
 
 	# GET /articles/new

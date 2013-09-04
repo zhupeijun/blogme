@@ -176,8 +176,8 @@
 		padding-left: 10px;
 		padding-right: 10px;
 
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 	.comments {
 
@@ -208,6 +208,41 @@
 
 			font-weight: bold;
 			color: #53868B;
+		}
+
+		.author_admin {
+
+			font-weight: bold;
+			color: #FF4500;
+		}
+
+		.author_reply {
+
+			font-weight: bold;
+			color: gray;
+		}
+
+		.date {
+			font-size: 10px;
+			float: right;
+			color: gray;
+		}
+	}
+
+	.comment_edit {
+		text-align: right;
+		background-color: gray;
+	}
+
+	.comment_operation {
+		text-align: right;
+
+		.reply {
+			cursor: pointer;
+
+			&:hover {
+				color: red;
+			}
 		}
 	}
 
@@ -249,14 +284,25 @@
 	.comment_list {
 	}
 
-	.comment_field {
+	.comment_reply {
+		display: none;
+		margin-top: 10px;
+		border: 1px solid #C9C9C9;
+		padding: 10px;
+		background-color: #F0F2F1;
+		//box-shadow: 0 0 50px gray;
+	}
+	
+
+
+	.comment_field, .reply_field {
 
 		input {
 			padding: 7px;
 
 			border: 1px solid #24AFD0;
 
-			border-radius: 3px;
+			border-radius: 5px;
 			margin-top: 10px;
 
 		}
@@ -266,7 +312,7 @@
 
 			border: 1px solid #24AFD0;
 
-			border-radius: 3px;
+			border-radius: 5px;
 			margin-top: 10px;
 		}
 	}

@@ -2,7 +2,7 @@
 	<div class="article_list">
 		<div class="article">
 			<div>
-			 	<div class="title">
+				<div class="title">
 					<p><%= link_to "#{@article.title}", @article %></p>
 				</div>
 				<div class="datetime">
@@ -40,27 +40,59 @@
 				<p><%= @comment_list.count %> comments</p>
 			</div>
 			<div class="comments"> 
-				<% @comment_list.each do |c| %>
-					<div class="comment">
-						<% if session[:user_id] then %>
-							<div style="float: right">
-								<%= link_to 'delete', comment_path(c, article_id: c.article_id), method: :delete  %>
-							</div>
-						<% end %>
-						<div class="comment_author">
-							<span class="author"><%= c.nick %></span>
-						</div>
-						<div class="comment_content">
-							<%= c.content %>
+				<%= render @comment_list %>
+					
+					<!-- reply window -->
+					<div class="comment_reply">
+						<div class="reply_field">
+							<%= form_for Comment.new do |f| %>
+								<%= f.hidden_field :article_id, { :value => @article.id } %> 
+								<% if session[:user_id] %>
+									<% login_user = User.find(session[:user_id]) %>
+									<%= f.hidden_field :nick, { :value => login_user.name } %>
+									<%= f.hidden_field :email, { :value => login_user.email } %>
+									<%= f.hidden_field :user_id, { :value => session[:user_id] } %>
+									<%= f.hidden_field :reply_id, { :value => -1 } %>
+								<% else %>
+									<%= f.hidden_field :reply_id, { :value => -1 } %>
+									<div>
+										<%= f.text_field :nick, size: 50 %> <%= f.label 'Nick' %>
+									</div>
+									<div>
+										<%= f.text_field :email, size: 50 %> <%= f.label 'Email' %>
+									</div>
+								<% end %>
+								<div>
+									<%= f.text_area :content, rows: 5, cols: 80 %>
+								</div>
+								<div class="actions">
+									<%= f.submit 'Submit'%>
+								</div>
+							<% end %>
 						</div>
 					</div>
-				<% end %>
+					<!-- reply window -->
+
+					<script type="text/javascript">
+						$('.reply').click(function(){
+
+							if($('.comment_reply').is(':visible')) $('.comment_reply').slideUp(500);
+							else {
+							
+								$(this).parent().after($('.comment_reply'));
+								$('.comment_reply').slideDown(500);
+								$('#comment_reply_id').attr('value',$(this).attr('id'));
+							}
+						});
+					</script>
+
+
 			</div>
 			<div class="comment_submit">
 				<% if flash[:alert] %>
 					<p><%= flash[:alert] %></p>
 				<% end %>
-				<%= render @comment %>
+				<%= render :template => "comments/new" %>
 			</div>
 		</div>
 	</div>

@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  skip_before_filter :authorize, only: [:create, :new]
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /comments
@@ -82,6 +83,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:article_id, :nick, :email, :content, :ifnotify)
+      params.require(:comment).permit(:article_id, :nick, :email, :content, :ifnotify, :user_id, :reply_id)
     end
 end

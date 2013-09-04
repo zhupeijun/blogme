@@ -1,31 +1,18 @@
-<%= form_for(comment) do |f| %>
-	<% if comment.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-			<ul>
-			<% comment.errors.full_messages.each do |msg| %>
-				<li><%= msg %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<% params[:article_id] = @article.id %>
-
-	<div class="comment_field">
-		<%= f.hidden_field :article_id, { :value => comment.article_id } %> 
-		<div>
-			<%= f.text_field :nick, size: 50 %> <%= f.label 'Nick' %>
-		</div>
-		<div>
-			<%= f.text_field :email, size: 50 %> <%= f.label 'Email' %>
-		</div>
-		<div>
-			<%= f.text_area :content, rows: 12, cols: 80 %>
-		</div>
-		<div class="actions">
-			<%= f.submit 'Submit'%>
-		</div>
+<div class="comment">
+	<div class="comment_author">
+		<span class="<%= comment.user_id == nil ? 'author' : 'author_admin' %>"><%= comment.nick %></span>
+		<% if comment.reply_id %>
+			to<span class="author_reply"> <%= Comment.find(comment.reply_id).nick %></span>
+		<% end %>
+		<span class="date"><%= comment.created_at.to_s(:db) %></span>
 	</div>
-<% end %>
+	<div class="comment_content">
+		<%= comment.content %>
+	</div>
+	<div class="comment_operation">
+		<span class="reply" id="<%= comment.id %>">reply</span>
+		<% if session[:user_id] then %>
+				<%= link_to 'delete', comment_path(comment, article_id: comment.article_id), method: :delete  %>
+		<% end %>
+	</div>
+</div>
