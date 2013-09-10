@@ -294,6 +294,46 @@
 		}
 	}
 
+	.login_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+
+	}
+
+	.register_btn {
+		background-color: #24AFD0;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: white;
+		margin-left: 10px;
+
+		&:hover{
+			background-color: #EDEDED;
+			color: #636363;
+			cursor: pointer;
+		}
+		
+	}
+
 	.user_content {
 		padding-top: 10px;
 		padding-bottom: 10px;
@@ -316,6 +356,15 @@
 		padding: 2px;
 		color: red;
 		text-align: left;
+	}
+
+	a:hover {
+		background: none;
+		color: red;
+	}
+
+	a:link {
+		text-decoration: none;
 	}
 
 }

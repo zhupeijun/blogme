@@ -7,6 +7,29 @@
 	<%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
+	<% if alert %>
+		<p id="alert">
+			<%= alert %>
+		</p>
+		<script type="text/javascript">
+			//alert(parseInt($('#alert').css('height')) + " " + parseInt($('#alert').css('width')));
+
+			$('#alert').css('top',document.documentElement.clientHeight - parseInt($('#alert').css('height')) - 60);
+			$('#alert').css('left',document.documentElement.clientWidth - parseInt($('#alert').css('width')) - 60);
+			$('#alert').fadeIn(1000);
+			setTimeout("$('#alert').fadeOut(1000)",5000);
+
+			$('#alert').mouseover(function(){
+				$('#alert').stop(true,true);
+				$('#alert').show();
+				//alert('123');
+			});
+
+			$('#alert').mouseout(function(){
+				$('#alert').fadeOut(1000);
+			});
+		</script>
+	<% end %>
 	<div id="main">
 		<div id="header">
 			<div class="header_div">
@@ -90,17 +113,26 @@
 										<tr>
 											<td class="user_info_label">Articles</td>
 											<td class="user_info_value">
-												<%= Article.where("author = '#{user.name}'").count %>
+												<%= Article.where("author = ?", user.name).count %>
 											</td>
 										</tr>
 									</table>
 								</div>
 
-								<div>
-									<%= link_to logout_url, method: :delete do %>
-										<span class="logout_btn">Logout</span>
-									<% end %>
-								</div>
+								<table cellpadding="0" cellspacing="0"> 
+									<tr>
+										<td>
+											<%= link_to logout_url, method: :delete do %>
+												<span class="login_btn">Logout</span>
+											<% end %>
+										</td>
+										<td>
+											<%= link_to new_article_url, method: :get do %>
+												<span class="register_btn">New Article</span>
+											<% end %>
+										</td>
+									</tr>
+								</table>
 							</div>
 						<% end %>
 

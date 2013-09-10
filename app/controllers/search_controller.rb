@@ -13,8 +13,7 @@ class SearchController < ApplicationController
 			@articles = Article.all
 		else
 			@articles = Article.where(
-				"title like '%#{key_words}%' or " + 
-				"content like '%#{key_words}%'")
+				"title like ? or content like ?", "%" + key_words + "%", "%" + key_words + "%")
 		end
 	end
 end

@@ -8,16 +8,16 @@ class SessionsController < ApplicationController
 		respond_to do |format|
 			if user and user.authenticate(params[:password])
 				session[:user_id] = user.id
-				format.html { redirect_to articles_url }
+				format.html { redirect_to articles_url, alert: "Wellcome #{user.name}!" }
 			else
 				format.html { redirect_to login_url,
-					notice: 'Invalid user name or password!' }
+					alert: 'Invalid user name or password!' }
 			end
 		end
   end
 
   def destroy
 		session[:user_id] = nil
-		redirect_to articles_url
+		redirect_to articles_url, alert: "Goodbye!"
   end
 end

@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 	def show
 		@comment = Comment.new
 		@comment.article_id = @article.id
-		@comment_list = Comment.where("article_id = '#{@article.id}'")
+		@comment_list = Comment.where("article_id = ?", @article.id)
 	end
 
 	# GET /articles/new
@@ -60,7 +60,7 @@ class ArticlesController < ApplicationController
 	# PATCH/PUT /articles/1.json
 	def update
 
-		ArticleTag.delete_all("article_id = #{@article.id}")
+		ArticleTag.delete_all("article_id = ?", @article.id)
 		article_params[:tags].split(/,/).each do |t|
 			@article.add_article_tag(t)
 		end
