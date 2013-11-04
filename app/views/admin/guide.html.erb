@@ -1,0 +1,17 @@
+<div class="admin_header">
+	<table>
+		<tr>
+			<td>
+				<div class="admin_title">
+					<p>Admin</p>
+				</div>
+			</td>
+			<td>
+				<%= link_to 'User Info', edit_user_url(session[:user_id])%>
+			</td>
+			<td>
+				<%= link_to 'Recent Comments', comments_url %> 
+			</td>
+		</tr>
+	</table>
+</div>

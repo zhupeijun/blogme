@@ -1,0 +1,19 @@
+<div>
+	<%= form_tag do %>
+		<div class="field">
+			<%= label_tag 'Nick', :nick %><br>
+			<%= text_field_tag :nick %>
+		</div>
+		<div> 
+			<%= label_tag 'Email', :email %><br>
+			<%= email_field_tag :email %>
+		</div>
+		<div>
+			<%= label_tag 'Content', :content %><br>
+			<%= text_area_tag :content %>
+		</div>
+		<div>
+			<%= submit_tag 'Submit', :class => "submit" %>
+		</div>
+ 	<% end %>
+</div>

@@ -1,0 +1,17 @@
+<div class="admin_page">
+	<%= render :template => 'admin/guide' %>
+	<div class="comment_list">
+		<% @comments.each do |c| %>
+			<div class="comment_item">
+				<div>
+					<%= c.nick %> @ <%= link_to "#{Article.find(c.article_id).title}", article_path(c.article_id) %>
+				</div>
+				<div>
+					<%= c.content %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+

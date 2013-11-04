@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blogme</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body class='<%= controller.controller_name %>'>
+	<% if alert %>
+		<p id="alert">
+			<%= alert %>
+		</p>
+		<script type="text/javascript">
+			//alert(parseInt($('#alert').css('height')) + " " + parseInt($('#alert').css('width')));
+
+			$('#alert').css('top',document.documentElement.clientHeight - parseInt($('#alert').css('height')) - 60);
+			$('#alert').css('left',document.documentElement.clientWidth - parseInt($('#alert').css('width')) - 60);
+			$('#alert').fadeIn(1000);
+			setTimeout("$('#alert').fadeOut(1000)",5000);
+
+			$('#alert').mouseover(function(){
+				$('#alert').stop(true,true);
+				$('#alert').show();
+				//alert('123');
+			});
+
+			$('#alert').mouseout(function(){
+				$('#alert').fadeOut(1000);
+			});
+		</script>
+	<% end %>
+	<div id="main">
+		<div id="header">
+			<div class="header_div">
+				<div class="logo">
+					<%= link_to 'Blog me', articles_url %>
+				</div>
+			</div>
+		</div>
+		<div id="layout">
+			<table>
+				<tr>
+					<td valign="top">
+						<div class="yield">
+							<%= yield %>
+						</div>
+					</td>
+					<td valign="top">
+						<div class="rightbar">
+						<div class="search_bar">
+							<table class="search_table">
+								<tr>
+									<%= form_tag '/search', method: :new do %>
+										<td>
+											<div class="search_field">
+												<%= text_field_tag :key_words, '' %>
+											</div>
+										</td>
+										<td>
+											<div class="search_btn">
+												<%= submit_tag 'Search' %>
+											</div>
+										</td>
+									<% end %>
+								</tr>
+							</table>
+							
+						</div>
+
+						<div class="tags">
+							<div class="tags_title">
+								Tags
+							</div>
+							<div class="tags_content">
+								<%= render "article_tags/article_tag" %>
+							</div>
+						</div>
+
+						<% if session[:user_id] == nil then %>
+							<div class="login">
+								<div class="login_div_title">Login/Register</div>
+								<table cellpadding="0" cellspacing="0"> 
+									<tr>
+										<td>
+											<%= link_to login_url do %>
+												<span class="login_btn">Login</span>
+											<% end %>
+										</td>
+										<td>
+											<%= link_to new_user_path do %>
+												<span class="register_btn">Register</span>
+											<% end %>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<% else %>
+							<div class="user_info">
+								<div class="user_info_title">User</div>
+								<% user = User.find_by_id(session[:user_id]) %>
+								<div class="user_content">
+									<table>
+										<tr>
+											<td class="user_info_label">User Name</td>
+											<td class="user_info_value">
+												<%= link_to admin_url do %>
+													<span><%= user.name %></span>
+												<% end %>
+											</td>
+
+										</tr>
+										<tr>
+											<td class="user_info_label">Articles</td>
+											<td class="user_info_value">
+												<%= Article.where("author = ?", user.name).count %>
+											</td>
+										</tr>
+									</table>
+								</div>
+
+								<table cellpadding="0" cellspacing="0"> 
+									<tr>
+										<td>
+											<%= link_to logout_url, method: :delete do %>
+												<span class="login_btn">Logout</span>
+											<% end %>
+										</td>
+										<td>
+											<%= link_to new_article_url, method: :get do %>
+												<span class="register_btn">New Article</span>
+											<% end %>
+										</td>
+									</tr>
+								</table>
+							</div>
+						<% end %>
+
+						<div style="display: none">
+							<%= link_to 'New Article', new_article_path, method: :get %>
+						</div>
+						</div>
+					</td>
+				</tr>
+				
+			</table>
+		</div>
+		<div id="bottom">
+			bottom
+		</div>
+	</div>
+</body>
+</html>

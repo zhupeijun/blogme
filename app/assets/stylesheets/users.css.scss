@@ -1,0 +1,84 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.users {
+
+	.new_user_page {
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
+		//box-shadow: 0 0 10px #F08080;
+
+		padding: 10px;
+
+
+		//border: 1px solid #C9C9C9;
+		
+		//background-color: #CAE1FF;
+		//background-color: white;
+
+		.title {
+			border-bottom: 1px solid #C9C9C9;
+
+			p {
+				color: #24AFD0;
+				font-size: 25px;
+			}
+		}
+	}
+
+	.register_window {
+
+		margin-top: 30px;
+
+		.register_label {
+			padding-top: 5px;
+			color: #848484;
+		}
+
+		.register_field {
+
+			input {
+
+				padding: 10px;
+				width: 300px;
+				//border: 2px solid #6CA6CD;
+				border: 2px solid #C2C2C2;
+				border-radius: 5px;
+
+			}
+
+			input:focus {
+				border: 2px solid #F08080;
+				box-shadow: 0 0 15px #FA8072;
+			}
+		}
+
+		.submit {
+			input {
+
+				background-color: #878787;
+				width: 120px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				text-align: center;
+				display: inline-block;
+				margin-top: 5px;
+				border-radius: 3px;
+				color: white;
+				border: none;
+
+				&:hover{
+					background-color: #6CA6CD;
+					color: white;
+					cursor: pointer;
+				}
+			}
+		}
+
+
+	}
+}

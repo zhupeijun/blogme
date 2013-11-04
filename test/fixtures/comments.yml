@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  article_id: 1
+  nick: MyString
+  email: MyString
+  content: MyText
+  ifnotify: false
+
+two:
+  article_id: 1
+  nick: MyString
+  email: MyString
+  content: MyText
+  ifnotify: false

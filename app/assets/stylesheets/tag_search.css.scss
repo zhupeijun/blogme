@@ -1,0 +1,43 @@
+// Place all the styles related to the TagSearch controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tag_search {
+
+	.tag_search_page {
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 700px;
+
+		padding: 10px;
+
+		box-shadow: 0 0 10px gray;
+		border: 1px solid #C9C9C9;
+		
+		//background-color: #CAE1FF;
+		background-color: white;
+	}
+	
+
+	.tag_search_title {
+		border-bottom: 1px solid #C9C9C9;
+
+		p {
+			color: #24AFD0;
+			font-size: 25px;
+		}
+	}
+
+	.article_item {
+		border-bottom: 1px solid #C9C9C9;
+	}
+
+	.result_count {
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		font-size: 18px;
+		color: gray;
+	}
+}

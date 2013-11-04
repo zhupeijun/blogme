@@ -1,0 +1,489 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+
+#main {
+	//background-color: yellow;
+}
+
+#header {
+
+	padding-top: 25px;
+	padding-bottom: 25px;
+
+	background-color: #5E5E5E;
+	//box-shadow: 0 0 20px #24AFD0;
+}
+
+.header_div {
+	width: 1050px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+.logo {
+	margin-left: 20px;
+	font-size: 27px;
+	font-weight: bold;
+
+	border: none;
+
+	color:  white;
+
+	a {
+		text-decoration: none;
+		color: white;
+	}
+
+	a:visited {
+		color: white;
+	}
+
+	a:hover {
+		color: #FCE7A6;
+		background: none;
+	}
+}
+
+.search_bar {
+
+	margin-top: 20px;
+
+	div {
+		display: inline-block;
+	}
+
+	.search_field {
+
+		input {
+			padding: 10px;
+			width: 170px;
+			margin-right: 0px;
+			border: 1px solid #C9C9C9;
+		}
+
+		input:focus {
+			border: 1px solid #24AFD0;
+			box-shadow: 0 0 5px #24AFD0;
+		}
+	}
+
+	.search_btn {
+
+
+
+		input {
+			background-color: #24AFD0;
+			width: 70px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: center;
+			display: inline-block;
+			border-radius: 3px;
+			color: white;
+			border: none;
+
+			&:hover{
+				background-color: #CD2626;
+				color: white;
+				cursor: pointer;
+			}
+		}
+
+	}
+
+	.search_table {
+		tr, td {	
+			padding: 0px;
+			margin: 0px;
+			border: none;
+		}
+	}
+}
+
+
+
+#bottom {
+	margin-top: 100px;
+
+	background-color: #303030;
+
+	height: 200px;
+
+	display: none;
+}
+
+
+#layout {
+
+
+	margin-left: auto;
+	margin-right: auto;
+
+	margin-top: 20px;
+
+	//background-color: red;
+	width: 1050px;
+}
+
+.yield {
+	width: 750px;
+
+	//background-color: yellow;
+
+	display: inline-block;
+}
+
+.rightbar {
+	vertical-align: top;
+	width: 280px;
+	//background-color: #098;
+	display: inline-block;
+}
+
+.paginate {
+
+	padding: 15px;
+
+	text-align: center;
+
+	//border: 1px solid gray;
+
+	width: 700px;
+
+	margin: 0 auto;
+}
+
+.pagination {
+
+
+
+	.kaminari_page_current {
+		
+		background-color: #CD2626;
+		border-radius: 3px;
+		color: white;
+	}
+	
+	span {
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #CAE1FF; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
+
+	a:link {
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #24AFD0; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
+
+	a:visited {
+		line-height: 30px;
+		display: inline-block;
+		border-radius: 3px;
+		text-decoration: none;
+		background-color: #24AFD0; 
+		padding-left: 15px;
+		padding-right: 15px;
+		color: white;
+	}
+
+	a:hover {
+		background-color: #CD2626;
+	}
+}
+
+/*kaminari page css*/
+.kaminari_page, .kaminari_first, .kaminari_prev, .kaminari_next, .kaminari_last {
+
+}
+
+
+
+.tags {
+	//display: none;
+	margin-top: 10px;
+	width: 250px;
+	background-color: white;
+	border: 1px solid #C9C9C9;
+	padding: 10px;
+
+	//box-shadow: 0 0 10px gray;
+
+	color: #555555;
+
+	a {
+		text-decoration: none;
+
+	}
+}
+
+.tags_title {
+	border-bottom: 1px solid #C9C9C9;
+
+	font-size: 18px;
+	color: #24AFD0;
+
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+.tags_content {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+.user_info {
+	width: 250px;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: white;
+	border: 1px solid #C9C9C9;
+	//box-shadow: 0 0 10px gray;
+
+	.user_info_title {
+		border-bottom: 1px solid #C9C9C9;
+
+		font-size: 18px;
+		color: #24AFD0;
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.logout_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+	}
+
+	.login_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+
+	}
+
+	.register_btn {
+		background-color: #24AFD0;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: white;
+		margin-left: 10px;
+
+		&:hover{
+			background-color: #EDEDED;
+			color: #636363;
+			cursor: pointer;
+		}
+		
+	}
+
+	.user_content {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.user_info_label {
+		//background-color: #24AFD0;
+		//border-radius: 3px;
+		border: none;
+		padding: 2px;
+		color: #24AFD0;
+		text-align: left;
+		//border-bottom: 1px solid #24AFD0;
+	}
+
+	.user_info_value {
+		//background-color: #24AFD0;
+		//border-radius: 3px;
+		border: none;
+		padding: 2px;
+		color: red;
+		text-align: left;
+	}
+
+	a:hover {
+		background: none;
+		color: red;
+	}
+
+	a:link {
+		text-decoration: none;
+	}
+
+}
+
+
+.login {
+	width: 250px;
+	padding: 10px;
+	margin-top: 10px;
+	background-color: white;
+	border: 1px solid #C9C9C9;
+	//box-shadow: 0 0 10px gray;
+
+	.login_div_title {
+		border-bottom: 1px solid #C9C9C9;
+
+		font-size: 18px;
+		color: #24AFD0;
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.login_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+
+	}
+
+	.register_btn {
+		background-color: #EDEDED;
+		width: 120px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		text-align: center;
+		display: inline-block;
+		margin-top: 10px;
+		border-radius: 3px;
+		color: #636363;
+		margin-left: 10px;
+
+		&:hover{
+			background-color: #24AFD0;
+			color: white;
+			cursor: pointer;
+		}
+		
+	}
+
+
+	a:hover {
+		background: none;
+	}
+	
+}
+
+
+
+.admin_page {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+
+	padding: 10px;
+}
+
+
+.admin_header{
+
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+
+	padding: 10px;
+
+
+	border-bottom: 1px solid #C9C9C9;
+
+	.admin_title {
+
+		p {
+			color: #24AFD0;
+			font-size: 25px;
+		}
+	}
+
+	a {
+		color: gray;
+		display: block;
+		padding-top: 20px;
+		padding-bottom: 20px;
+		width: 150px;
+		text-align: center;
+
+		text-decoration: none;
+
+		&:hover {
+			background: none;
+		}
+
+		&:visited {
+			color: gray;
+		}
+	}
+}
+

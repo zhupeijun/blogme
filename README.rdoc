@@ -1,0 +1,17 @@
+== BLOGME
+
+Things you may want to cover:
+
+* Ruby version:			 	4.0.0
+
+* System: 					Ubuntu 12.04 LTS
+
+* Configuration: 			None
+
+* Database: 				SQLit3
+
+* Test:						rake test
+
+
+
+Version <tt> root version </tt>

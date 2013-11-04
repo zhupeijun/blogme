@@ -1,0 +1,18 @@
+<div class="comment">
+	<div class="comment_author">
+		<span class="<%= comment.user_id == nil ? 'author' : 'author_admin' %>"><%= comment.nick %></span>
+		<% if comment.reply_id %>
+			to<span class="author_reply"> <%= Comment.find(comment.reply_id).nick %></span>
+		<% end %>
+		<span class="date"><%= comment.created_at.to_s(:db) %></span>
+	</div>
+	<div class="comment_content">
+		<%= comment.content %>
+	</div>
+	<div class="comment_operation">
+		<span class="reply" id="<%= comment.id %>">reply</span>
+		<% if session[:user_id] then %>
+				<%= link_to 'delete', comment_path(comment, article_id: comment.article_id), method: :delete  %>
+		<% end %>
+	</div>
+</div>
