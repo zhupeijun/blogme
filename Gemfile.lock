@@ -162,6 +162,7 @@ DEPENDENCIES
   capistrano (~> 2.15.0)
   ckeditor
   coffee-rails (~> 4.0.0)
+  execjs
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
