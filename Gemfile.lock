@@ -132,7 +132,8 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   ckeditor
-  coffee-rails (~> 4.0.0)
+  coffee-rails 
+  execjs
   jbuilder (~> 1.2)
   jquery-rails
   kaminari
